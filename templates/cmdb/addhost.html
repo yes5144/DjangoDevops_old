@@ -1,0 +1,69 @@
+{% extends 'common/base.html' %}
+{% load static %}
+{% block title %}资产详细{% endblock %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block breadcrumb %}
+<!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        新增主机
+        <strong>{{ asset_info }}</strong>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> 主页</a></li>
+        <li>新增主机</li>
+        <li class="active">新增详情</li>
+      </ol>
+    </section>
+{% endblock %}
+
+{% block content %}
+<form class="form-horizontal" role="form" method="post" action="#">
+    {% csrf_token %}
+  <div class="form-group">
+    <label class="col-sm-2 control-label">host_id</label>
+    <div class="col-sm-4">
+      <p class="form-control-static"></p>
+    </div>
+  </div>
+   <div class="form-group">
+      <label for="hostname" class="col-sm-2 control-label">host_name</label>
+      <div class="col-sm-4">
+         <input type="text" class="form-control" name="host_name"
+            placeholder="主机名" >
+      </div>
+   </div>
+   <div class="form-group">
+      <label for="hosttype" class="col-sm-2 control-label">host_type</label>
+      <div class="col-sm-4">
+         <input type="text" class="form-control" name="host_type"
+            placeholder="主机类型">
+      </div>
+   </div>
+    <!--
+   <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+         <div class="checkbox">
+            <label>
+               <input type="checkbox"> 请记住我
+            </label>
+         </div>
+      </div>
+   </div>
+    -->
+   <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+         <button type="submit" class="btn btn-default">确认添加</button>
+      </div>
+   </div>
+</form>
+
+{% endblock %}
+
+{% block script %}
+
+{% endblock %}

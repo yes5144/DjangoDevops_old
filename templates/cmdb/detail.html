@@ -10,19 +10,24 @@
 <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        资产详细
+        资产详情
         <small>asset info</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> 主页</a></li>
         <li>资产总表</li>
-        <li class="active">资产详细</li>
+        <li class="active">资产详情</li>
       </ol>
     </section>
 {% endblock %}
 
 {% block content %}
-
+    {% for host in asset_info %}
+        {{ host.host_name }}
+{#        {% for k, v in host %}#}
+{#            <p>{{ k }}:<strong>{{ v }}</strong></p>#}
+{#        {% endfor %}#}
+    {% endfor %}
 {% endblock %}
 
 {% block script %}

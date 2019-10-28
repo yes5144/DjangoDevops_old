@@ -17,7 +17,7 @@
       </ol>
     </section>
 
-    <a href="/cmdb/addhost/"><span class="btn btn-info col-sm-offset-7 ">新增主机</span></a>
+    <a href="/cmdb/addhost/"><span class="btn btn-info col-sm-offset-8 ">新增主机</span></a>
 
 {% endblock %}
 
@@ -43,11 +43,11 @@
              <td>{{ row.pri_ip1 }}</td>
              <td>
                  <a href="/cmdb/edit/{{ row.id }}/"><span class="glyphicon glyphicon-pencil"></span></a>
-                 <a href="#"><span class="glyphicon glyphicon-trash"></span></a>
+                 <a href="/cmdb/delete/{{ row.id }}/"><span class="glyphicon glyphicon-trash"></span></a>
 {#                 <span class="btn btn-info"><a href="{% url 'cmdb:detail' %}{{ row.id }}/">详情</a> </span>#}
                  <a href="/cmdb/detail/{{ row.id }}/"><span class="btn btn-info">详情</span></a>
                  <a href="/cmdb/edit/{{ row.id }}/"><span class="btn btn-warning">编辑</span></a>
-                 <span class="btn btn-danger">删除</span>
+                 <a href="/cmdb/delete/{{ row.id }}/"><span class="btn btn-danger">删除</span></a>
              </td>
            </tr>
          {% endfor %}

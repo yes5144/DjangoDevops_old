@@ -14,4 +14,5 @@ urlpatterns = [
     path('addhost/', views.addhost, name='addhost'),
     re_path('detail/(?P<nid>\d+)/', views.detail, name='detail'),
     re_path('edit/(?P<nid>\d+)/', views.edit, name='edit'),
+    re_path('delete/(?P<nid>\d+)/', views.delete, name='delete'),
 ]

@@ -10,7 +10,7 @@ def dashboard(request):
 
 def assets(request):
     print('assets')
-    assets_list = models.Assets.objects.all()
+    assets_list = models.Assets.objects.filter(is_deleted=0)
     print(type(assets_list),assets_list)
     return render(request,'cmdb/assets.html',{'assets_list':assets_list})
 
@@ -24,6 +24,8 @@ def detail(request,nid):
 def edit(request,nid):
     if request.method =="POST":
         print(request.POST)
+        host_name = request.POST['host_name']
+        models.Assets.objects.filter(id=nid).update(host_name=host_name)
         return HttpResponse('ok')
     print('edit',nid)
     asset_info = models.Assets.objects.filter(id=nid)
@@ -32,9 +34,20 @@ def edit(request,nid):
 
 def addhost(request):
     if request.method =="POST":
-        print(request.POST)
-        assets_list = models.Assets.objects.all()
-        return redirect('/cmdb/assets',{'assets_list':assets_list})
-    print('addhost')
-    print(request.GET)
-    return render(request,'cmdb/addhost.html')
+        host_name = request.POST['host_name']
+        host_type = request.POST['host_type']
+        disk_total1 = request.POST['disk_total1']
+        print(host_name)
+        print(host_type)
+        new_host = models.Assets(host_name=host_name,host_type=host_type,disk_total1=disk_total1)
+        new_host.save()
+        return HttpResponse('ok')
+        # assets_list = models.Assets.objects.filter(is_deleted=0)
+        # return redirect(request, 'cmdb/assets.html',{'assets_list':assets_list})
+    else:
+        print('addhost')
+        return render(request,'cmdb/addhost.html')
+
+def delete(request,nid):
+    models.Assets.objects.filter(id=nid).update(is_deleted=1)
+    return HttpResponse('del ok')

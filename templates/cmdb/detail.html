@@ -23,7 +23,12 @@
 
 {% block content %}
     {% for host in asset_info %}
-        {{ host.host_name }}
+        <p>{{ host.host_name }}</p>
+        <p>{{ host.host_type }}</p>
+        <p>{{ host.pub_ip1 }}</p>
+        <p>{{ host.pub_ip2 }}</p>
+        <p>{{ host.pri_ip1 }}</p>
+        <p>{{ host.pri_ip2 }}</p>
 {#        {% for k, v in host %}#}
 {#            <p>{{ k }}:<strong>{{ v }}</strong></p>#}
 {#        {% endfor %}#}

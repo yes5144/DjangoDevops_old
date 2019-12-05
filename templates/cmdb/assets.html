@@ -42,6 +42,7 @@
              <td>{{ row.host_type }}</td>
              <td>{{ row.pri_ip1 }}</td>
              <td>
+                 <a href="/cmdb/detail/{{ row.id }}/"><span class="glyphicon glyphicon-info-sign"></span></a>
                  <a href="/cmdb/edit/{{ row.id }}/"><span class="glyphicon glyphicon-pencil"></span></a>
                  <a href="/cmdb/delete/{{ row.id }}/"><span class="glyphicon glyphicon-trash"></span></a>
 {#                 <span class="btn btn-info"><a href="{% url 'cmdb:detail' %}{{ row.id }}/">详情</a> </span>#}

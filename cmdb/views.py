@@ -39,11 +39,12 @@ def addhost(request):
         disk_total1 = request.POST['disk_total1']
         print(host_name)
         print(host_type)
+        print(disk_total1)
         new_host = models.Assets(host_name=host_name,host_type=host_type,disk_total1=disk_total1)
         new_host.save()
-        return HttpResponse('ok')
-        # assets_list = models.Assets.objects.filter(is_deleted=0)
-        # return redirect(request, 'cmdb/assets.html',{'assets_list':assets_list})
+        # return HttpResponse('ok')
+        assets_list = models.Assets.objects.filter(is_deleted=0)
+        return redirect('/cmdb/assets',{'assets_list':assets_list})
     else:
         print('addhost')
         return render(request,'cmdb/addhost.html')
@@ -51,3 +52,17 @@ def addhost(request):
 def delete(request,nid):
     models.Assets.objects.filter(id=nid).update(is_deleted=1)
     return HttpResponse('del ok')
+
+import json
+def login(request):
+    if request.method=="GET":
+        return render(request,'login.html')
+    elif request.method=="POST":
+        ret = {"status":True,'error':None,'data':None}
+        obj = LoginForm(request.POST)
+        if obj.is_valid():
+            print(obj.cleand_data)
+        else:
+            print(type(obj.errors))
+            ret['error']=obj.errors.as_json()
+            return HttpResponse(json.dumps(ret))

@@ -1,9 +1,12 @@
 ## 环境
+```
 python==3.6.1
 django==2.2.2
-adminlte==2.4.10
+adminlte==2.4.14
+```
 
 ### settings.py
+```
 TEMPLATE_DIRS = (os.path.join(BASE_DIR,  'templates'),)
 STATICFILES_DIRS = (os.path.join(BASE_DIR,  'static'),)
 
@@ -19,13 +22,8 @@ DATABASES = {
         'PORT': '3306',                         # mysql服务端口
     }
 }
+```
 
-### django
-pip install django==2.2.2
-pip install 
-
-### 参考链接
-[刘江的博客教程](http://www.liujiangblog.com/course/django/125)
 
 ```python
     # 增
@@ -51,4 +49,6 @@ pip install
     # obj.c1 = '111'
     # obj.save()                                                 # 修改单条数据
 ```
+### 参考链接
+[刘江的博客教程](http://www.liujiangblog.com/course/django/125)
 [武沛齐 Django【进阶篇 】](https://www.cnblogs.com/wupeiqi/articles/5246483.html)

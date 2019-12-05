@@ -62,3 +62,11 @@ db.sqlite3
 
 # html
 test_xiaoqiu4.html
+
+# 片段笔记
+base_tips.md
+
+## 测试
+app01
+templates/app01
+static/imgs
